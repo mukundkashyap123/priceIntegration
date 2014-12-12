@@ -1,0 +1,67 @@
+couchbase.nodes:
+  - http://localhost:8091/pools
+couchbase.bucket: PriceServiceTest
+couchbase.username: "PriceServiceTest"
+couchbase.password: "tesco"
+
+couchbase.designdoc.design.name: "prod_designdoc_item"
+couchbase.designdoc.view.name: "prod_v_itempurge"
+couchbase.designdoc.view.pageno: 10
+priceservice.price.last_updated_days: 2
+
+price.service.remote.http.server.url: http://localhost:9081/
+
+price.service.identifier.import: admin/import
+price.service.identifier.importInProgress : admin/importInProgress
+price.service.identifier.itemPurge : itempurge/purge
+price.service.identifier.version : v2
+price.service.identifier.root: price
+price.service.identifier.tpnb: tpnb
+price.service.identifier.tpnc: tpnc
+price.service.identifier.store: store
+
+rpm.extract.line.count: 5
+rpm.store.data.dump.destination : D:/Extracts/appl/prcsrvce/data/in_reg/STORE_ZONE.csv
+rpm.price.zone.data.dump.destination : D:/Extracts/appl/prcsrvce/data/in_reg/PRICE_ZONE.csv
+rpm.promo.zone.data.dump.destination : D:/Extracts/appl/prcsrvce/data/in_reg/PROM_ZONE.csv
+rpm.promo.extract.data.dump.destination : D:/Extracts/appl/prcsrvce/data/in_reg/PROM_EXTRACT.csv
+rpm.promo.desc.extract.data.dump.destination : D:/Extracts/appl/prcsrvce/data/in_reg/PROM_DESC_EXTRACT_full_dump.csv
+
+
+rpm.store.data.dump.source : D:/Extracts/appl/prcsrvce/data/in/dataSetup_STORE_ZONE.csv
+rpm.price.zone.data.dump.source : D:/Extracts/appl/prcsrvce/data/in/dataSetup_PRICE_ZONE.csv
+rpm.promo.zone.data.dump.source : D:/Extracts/appl/prcsrvce/data/in/dataSetup_PROM_ZONE.csv
+rpm.promo.extract.data.dump.source : D:/Extracts/appl/prcsrvce/data/in/dataSetup_PROM_EXTRACT.csv
+rpm.promo.desc.extract.data.dump.source : D:/Extracts/appl/prcsrvce/data/in/dataSetup_PROM_DESC_EXTRACT_full_dump.csv
+
+single.tpnb.multiple.zones : 050000016
+multiple.tpnc.multiple.zones : 050000068
+product.to.be.removed : 050000068-002
+product.for.price.validation : 050000212
+product.promotion.simple.complex : 050000483
+
+nationalzones.store : 2002
+premiummetrozones.store : 4132
+expresszones.store : 4382
+scottishnationalzones.store : 3492
+roisuperzones.store : 2007
+roiexpresszones.store : 3550
+
+hostedGraphite:
+  hostname: carbon.hostedgraphite.com
+  port: 2003
+  apikey: 1d226f2e-fcd0-4eba-8c63-89e11b1ba2d9
+  period: 5
+http:
+  port: 9083
+  adminPort: 9084
+logging:
+  level: INFO
+  file:
+    enabled: true
+    #threshold should be commented/uncommented to enable the logging into log file based on severity required
+    threshold: INFO
+    #threshold: WARN
+    #threshold: ERROR
+    currentLogFilename: ./logs/price-service-reg-test.log
+    archivedLogFilenamePattern: ./logs/price-service-reg-test-%d.log.gz
